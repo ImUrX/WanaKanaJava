@@ -412,7 +412,6 @@ public class WanaKanaJava {
                 || (KANA_PUNCTUATION_START <= character && character <= KANA_PUNCTUATION_END)
                 || (HANKAKU_KATAKANA_START <= character && character <= HANKAKU_KATAKANA_END)
                 || (CJK_SYMBOLS_PUNCTUATION_START <= character && character <= CJK_SYMBOLS_PUNCTUATION_END)
-                || (KATAKANA_PUNCTUATION_START <= character && character <= KATAKANA_PUNCTUATION_END)
                 || (ZENKAKU_PUNCTUATION_1_START <= character && character <= ZENKAKU_PUNCTUATION_1_END)
                 || (ZENKAKU_PUNCTUATION_2_START <= character && character <= ZENKAKU_PUNCTUATION_2_END)
                 || (ZENKAKU_PUNCTUATION_3_START <= character && character <= ZENKAKU_PUNCTUATION_3_END)
