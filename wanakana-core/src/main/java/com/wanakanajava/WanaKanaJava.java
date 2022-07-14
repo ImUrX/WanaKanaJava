@@ -59,15 +59,15 @@ public class WanaKanaJava {
     static final int RARE_CJK_START = 0x3400;
     static final int RARE_CJK_END = 0x4dbf;
 
-    HashMap<String, Boolean> mOptions = new HashMap<String, Boolean>();
+    HashMap<String, Boolean> mOptions = new HashMap<>();
     static final String OPTION_USE_OBSOLETE_KANA = "useObsoleteKana";
     static final String OPTION_IME_MODE = "IMEMode";
 
-    HashMap<String, String> mRtoJ = new HashMap<String, String>();
-    HashMap<String, String> mJtoR = new HashMap<String, String>();
+    HashMap<String, String> mRtoJ = new HashMap<>();
+    HashMap<String, String> mJtoR = new HashMap<>();
 
     private interface Command {
-        public boolean run(String str);
+        boolean run(String str);
     }
 
     public WanaKanaJava(Boolean useObsoleteKana) {
@@ -296,7 +296,7 @@ public class WanaKanaJava {
             }
 
             if (roma.length() > (position + 1) && mOptions.get(OPTION_IME_MODE) && String.valueOf(chunkLC.charAt(0)).equals("n")) {
-                if ((String.valueOf(roma.charAt(position + 1)).toLowerCase().equals("y") && position == (len - 2)) || position == (len - 1)) {
+                if ((String.valueOf(roma.charAt(position + 1)).equalsIgnoreCase("y") && position == (len - 2)) || position == (len - 1)) {
                     kanaChar = String.valueOf(chunk.charAt(0));
                 }
             }
@@ -423,6 +423,11 @@ public class WanaKanaJava {
                 || (COMMON_CJK_START <= character && character <= COMMON_CJK_END)
                 || (RARE_CJK_START <= character && character <= RARE_CJK_END);
     }
+
+    public boolean isJapanese(String text) {
+        return text.chars().allMatch(ch -> this.isJapanese((char) ch));
+    }
+
 
     private void prepareRtoJ() {
         mRtoJ.put("a", "あ");
